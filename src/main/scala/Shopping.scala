@@ -17,6 +17,5 @@ object Shopping extends App{
       orange += 1
     }
   }
-
   checkOut(apple, orange)
 }
