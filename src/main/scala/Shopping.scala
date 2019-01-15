@@ -8,7 +8,6 @@ object Shopping extends App{
   }
 
   val scannedItems = List(1, 1, 2, 1, 2, 1)
-
   for(i <- 0 until scannedItems.length){
     if(scannedItems(i) == 1){
       apple += 1
