@@ -7,14 +7,26 @@ object ShoppingStepTwo extends App{
     println(f"Total cost is £$cost%2.2f")
   }
 
-  val scannedItems = List(1, 2, 2, 1, 2, 2, 1, 2)
+  val scannedItems = scala.collection.mutable.ListBuffer[Int]()
 
-  for(i <- 0 until scannedItems.length){
-    if(scannedItems(i) == 1){
-      apple += 1
+  def scanning(): Unit ={
+    println("Enter 1 if item is an apple, and 2 for an orange, or any other key to get bill.")
+    var choice = scala.io.StdIn.readInt
+    if(choice != 1 && choice != 2) {
+      for(i <- 0 until scannedItems.length){
+        if(scannedItems(i) == 1){
+          apple += 1
+        }
+        else{
+          orange += 1
+        }
+      }
+      appleDiscounts()
+      orangeDiscounts()
     }
-    else{
-      orange += 1
+    else {
+      scannedItems += choice
+      scanning()
     }
   }
 
@@ -38,7 +50,7 @@ object ShoppingStepTwo extends App{
       orange = 2 + ((orange - 2)/3)*2
     }
   }
-  appleDiscounts()
-  orangeDiscounts()
+
+  scanning
   checkOut(apple, orange)
 }
