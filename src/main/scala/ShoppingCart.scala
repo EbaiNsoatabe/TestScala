@@ -7,7 +7,7 @@ object ShoppingCart extends App{
     println(f"Total cost is £$cost%2.2f")
   }
 
-  val scannedItems = List(2, 2, 2, 2, 2)
+  val scannedItems = List(1, 2, 2, 1, 2, 2, 1, 2)
 
   for(i <- 0 until scannedItems.length){
     if(scannedItems(i) == 1){
